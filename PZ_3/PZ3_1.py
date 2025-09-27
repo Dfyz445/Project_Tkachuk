@@ -1,0 +1,10 @@
+try:
+    num = int(input("Enter a number: "))
+    if 100 <= num <=999 and num % 2 == 1:
+        print("Число трехзначное нечетное")
+    elif 100 <= num <=999 and num % 2 == 0:
+        print("Число трехзначное четное")
+    else:
+        print("Число не трехзначное")
+except ValueError:
+    print("Это не число, либо не целое")

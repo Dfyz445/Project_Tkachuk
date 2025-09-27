@@ -1,0 +1,13 @@
+try:
+    num = int(input("Введите целое трехзначное число:"))
+    if 100 <= num <= 999:  #проверяем трехзначное ли число
+        #определяем порядок чисел
+        firs_num = num // 100
+        two_numbers = num % 100
+        #умножаем два последних числа и прибавляем первую
+        all_numbers = two_numbers * 10 + firs_num
+        print(all_numbers)
+    else:
+        print("Это не трехзначное число")
+except ValueError:
+    print("Ошибка! Введено не число!")
