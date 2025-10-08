@@ -9,8 +9,9 @@ try:
     #Проверяем отрицательна ли сумма
     if sum < 0:
         sum *= 8
+        print("Умножаем число на 8:", sum)
     else:
         sum *= 1.5
-    print(sum)
+        print("Умножаем число на 1,5:", sum)
 except ValueError:
     print("это не число!")

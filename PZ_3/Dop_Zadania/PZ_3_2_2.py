@@ -8,8 +8,9 @@ try:
     #Проверяем четность
     if num1 % 2 == 0:
         num1 /= 4
+        print("делим число на 4:", num1)
     else:
         num1 *= 5
-    print(num1)
+        print("Умножаем число на 5", num1)
 except ValueError:
     print("Это не число!")

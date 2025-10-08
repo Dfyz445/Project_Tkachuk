@@ -9,11 +9,11 @@ try:
     #Проверяем двухзначность и четность
     if 10 <= num1 <= 99 and num1 % 2 == 0:
         num1 += 2
-        print(num1)
+        print("Прибавляем 2:", num1)
         #Проверяем двухзначность и нечетность
     elif 10 <= num1 <= 99 and num1 % 2 == 1:
         num1 -= 2
-        print(num1)
+        print("Вычитаем 2:", num1)
     else:
         print("Введенно не двухзначное число")
 except ValueError:

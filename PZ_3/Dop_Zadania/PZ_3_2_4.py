@@ -8,8 +8,9 @@ try:
     #Проверям положительна ли?
     if num1 > 0:
         num1 += 20
+        print("Прибавляем 20:", num1)
     else:
         num1 -= 5
-    print(num1)
+        print("Вычитаем 5:", num1)
 except ValueError:
     print("Введено не число!")

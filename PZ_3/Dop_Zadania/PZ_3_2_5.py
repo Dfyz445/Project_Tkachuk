@@ -5,8 +5,9 @@ try:
     sum = num1 + num2
     if sum % 5 == 0:
         sum += 1
+        print("Прибавляем 1:", sum)
     else:
         sum -= 2
-    print(sum)
+        print("Вычитаем 2:", sum)
 except ValueError:
     print("Введено не число!")
