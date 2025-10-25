@@ -5,13 +5,13 @@
 try:
     #Вводим 2 числа и складываем
     num1, num2 = float(input("Введите 1 число:")), float(input("Введите 2 число:"))
-    sum = (num1 + num2)
+    sum1 = (num1 + num2)
     #Проверяем отрицательна ли сумма
-    if sum < 0:
-        sum *= 8
-        print("Умножаем число на 8:", sum)
+    if sum1 < 0:
+        sum1 *= 8
+        print("Умножаем число на 8:", sum1)
     else:
-        sum *= 1.5
-        print("Умножаем число на 1,5:", sum)
+        sum1 *= 1.5
+        print("Умножаем число на 1,5:", sum1)
 except ValueError:
     print("это не число!")
