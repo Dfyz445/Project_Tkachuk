@@ -13,12 +13,24 @@ try:
         print(N, "число не положительное, или равно 0!")
 except ValueError:
     print("Введены некорректные числа!")
-#Вводим переменную факториала
-fact_N = 1
-#Вычисляем факториал
-while N > 1:
-    fact_N *= N
+#Вводим переменные
+num1 = 1 + X
+result = 0
+fact_count = 1
+fact_num = 1
+fact_New = 1
+degree = 0
+
+while N > 0:
+    fact_count = fact_num
+    degree += fact_num
+    fact_num += 1
+    while fact_count > 0: #нахождение факториала
+        fact_New *= fact_count
+        fact_count -= 1
+    result = num1 + X ** degree / fact_New #находим значение выражения
+    #Сбрасывание значений
+    degree = 0
+    fact_New = 1
     N -= 1
-#Вычисляем значение выражения
-result = 1 + X + (X ** 2) / 2 + (X ** N) / fact_N * (fact_N == 12 * N)
 print(result)
