@@ -7,11 +7,13 @@ import random
 def random_number():
     random_num = random.randint(1000, 9999)
     print("Сгенерирированое число:", random_num)
+
     #Находим каждую цифру в числе
     digit1 = random_num // 1000
     digit2 = (random_num // 100) % 10
     digit3 = (random_num // 10) % 10
     digit4 = random_num % 10
+
     #Проверяем равны ли они
     if digit1 == digit2 or digit1 == digit3 or digit1 == digit4:
         print("В числе есть одинаковые числа")
