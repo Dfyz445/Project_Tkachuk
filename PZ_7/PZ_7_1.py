@@ -6,6 +6,6 @@
 def swap_case(text):
     #Возвращаем текст изменняя его регистр
     return text.swapcase()
-#Вызываем функцию
+#Вызываем функции
 print(swap_case("Hello World!"))
 print(swap_case("Привет Мир!"))

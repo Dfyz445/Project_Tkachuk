@@ -8,9 +8,9 @@ def reverse_words(text):
     #Разделяем строку на слова (множественные пробелы игнорируются)
     words = text.split()
     #Меняем слова местами
-    reversed_words = list(reversed(words))
+    reverse_words = list(reversed(words))
     #Возвращаем слова с пробелом
-    return ' '.join(reversed_words)
+    return ' '.join(reverse_words)
 #Вызываем функцию
-print(reverse_words("один    два   три"))
-print(reverse_words("  Hello World  "))
+print(reverse_words("один два три"))
+print(reverse_words("Hello World "))

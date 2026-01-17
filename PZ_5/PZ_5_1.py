@@ -4,7 +4,7 @@
 """
 import random
 #Создаем функцию
-def random_number():
+def random_num():
     random_num = random.randint(1000, 9999)
     print("Сгенерирированое число:", random_num)
 
@@ -25,4 +25,4 @@ def random_number():
         print("В числе нет одинаковых чисел")
     return random_num
 #Выполняем вызов функции
-print(random_number())
+print(random_num())
