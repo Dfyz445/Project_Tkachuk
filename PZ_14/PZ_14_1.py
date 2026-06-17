@@ -1,3 +1,4 @@
+#2 вариант
 import tkinter as tk
 
 okno = tk.Tk()
@@ -122,7 +123,7 @@ def otpravit():
     rezultat.insert(tk.END, f"Любимые животные: {', '.join(vybrannye) if vybrannye else 'не выбраны'}")
 
 knopka = tk.Button(frame_knopki, text="Отправить информацию", command=otpravit, font=("Arial", 9), padx=15, pady=3)
-knopka.pack(side="left")  # прижимаем влево
+knopka.pack(side="left")
 
 ramka4 = tk.LabelFrame(vnutrennyaya_ramka, text="Результат", font=("Arial", 10, "bold"), bg="#e8e8e8", padx=10, pady=5)
 ramka4.pack(fill="both", expand=True, padx=20, pady=10)

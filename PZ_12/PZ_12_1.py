@@ -1,10 +1,9 @@
 #В матрице элементы кратные 3 увеличить в 3 раза.
+import random
 
-matrix = [
-    [1, 3, 5, 6],
-    [9, 2, 4, 12],
-    [7, 8, 15, 0]
-]
+rows = int(input("Введите количество строк: "))
+cols = int(input("Введите количество столбцов: "))
+matrix = [[random.randint(1, 30) for _ in range(rows)] for _ in range(cols)]
 
 print("Исходная матрица:")
 for row in matrix:

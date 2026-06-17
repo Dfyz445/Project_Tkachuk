@@ -1,31 +1,21 @@
-#В последовательности на n целых элементов найти произведение элементов средней трети.
+#В последовательности на и целых элементов найти произведение элементов средней трети.
 
-def product_middle(sequence):
-    n = len(sequence)
-    if n == 0:
-        return 0
+from math import prod
+from typing import List, Optional
 
+data: List[int] = [2, 5, 1, 8, 3, 9, 4, 7, 6, 10, 12, 15]
+
+def middle_third_product(seq: List[int]) -> Optional[int]:
+    n = len(seq)
+    if n < 3:
+        return None
     part_size = n // 3
-    if n % 3 != 0:
-        part_size = (n + 2) // 3
 
-    start = (n - part_size) // 2
-    end = start + part_size
+    start = part_size
+    end = n - part_size
+    middle = [seq[i] for i in range(start, end)]
 
-    middle_part = sequence[start:end]
-    product = 1
-    for num in middle_part:
-        product *= num
+    return prod(middle)
 
-    return product
-
-if __name__ == "__main__":
-    seq1 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    res1 = product_middle(seq1)
-    print(f"Последовательность: {seq1}")
-    print(f"Произведение средней трети: {res1}")
-
-    seq2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    res2 = product_middle(seq2)
-    print(f"Последовательность: {seq2}")
-    print(f"Произведение средней трети: {res2}")
+print("Исходная последовательность:", data)
+print("Произведение элементов средней трети:", middle_third_product(data))

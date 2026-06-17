@@ -3,24 +3,31 @@
 соответствующие типам: .xls, .xml, .html, .css, .py.
 Посчитать количество полученных элементов.
 """
-file = open("expansion.txt", "r")
-content = file.read()
-file.close()
+import re
+from pathlib import Path
 
-extensions = [".xls", ".xml", ".html", ".css", ".py"]
-words = content.split()
-found_files = []
+def count_files_by_extensions(text: str, extensions: list) -> int:
+    escaped_exts = sorted(
+        (re.escape(ext) for ext in extensions),
+        key = len,
+        reverse = True
+    )
+    pattern = re.compile(
+        r'\b[\w.-]+?(?:' + '|'.join(escaped_exts) + r')\b',
+        re.IGNORECASE
+    )
+    matches = pattern.findall(text)
+    return len(matches)
 
-for word in words:
-    clean_word = word.strip(",.;:!?\"'()[]{}")
+def main():
+    input_file = Path("expansion.txt")
 
-    for ext in extensions:
-        if clean_word.endswith(ext):
-            found_files.append(clean_word)
-            break
+    with open(input_file) as f:
+        content = f.read()
+    extensions = ['.xls', '.xml', '.html', '.css', '.py']
 
-print("Найденные файлы:")
-for file_name in found_files:
-    print(file_name)
+    count = count_files_by_extensions(content, extensions)
+    print(f"Количество найденных файлов с расширениями {', '.join(extensions)}: = {count}")
 
-print(f"Количество найденных элементов: {len(found_files)}")
+if __name__ == "__main__":
+    main()
