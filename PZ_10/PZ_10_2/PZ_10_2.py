@@ -20,8 +20,8 @@ for i in range(min(4, len(lines))):
 
 print("Количество знаков пунктуации в первых 4 строках:", punctuation_count)
 
-with open('result_poem.txt', 'w', encoding='utf-8') as file:
+with open('resultat.txt', 'w', encoding='utf-8') as file:
     for line in reversed(lines):
         file.write(line)
 
-print("Новый файл 'result_poem.txt' создан со строками в обратном порядке")
+print("Новый файл 'resultat.txt' создан со строками в обратном порядке")
