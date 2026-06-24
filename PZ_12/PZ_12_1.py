@@ -9,11 +9,13 @@ print("Исходная матрица:")
 for row in matrix:
     print(row)
 
-for i in range(len(matrix)):
-    for j in range(len(matrix[i])):
-        if matrix[i][j] % 3 == 0:
-            matrix[i][j] *= 3
+processed_matrix = list(map(
+    lambda row: list(map(
+        lambda x: x * 3 if x % 3 == 0 else x,
+        row
+    )),
+    matrix
+))
 
 print("Матрица после увеличения элементов, кратных 3, в 3 раза:")
-for row in matrix:
-    print(row)
+list(map(lambda row: print(row), processed_matrix))

@@ -6,7 +6,7 @@
 import re
 from pathlib import Path
 
-def count_files_by_extensions(text: str, extensions: list) -> int:
+def find_files_by_extensions(text: str, extensions: list) -> list:
     escaped_exts = sorted(
         (re.escape(ext) for ext in extensions),
         key = len,
@@ -17,17 +17,23 @@ def count_files_by_extensions(text: str, extensions: list) -> int:
         re.IGNORECASE
     )
     matches = pattern.findall(text)
-    return len(matches)
+    return matches
 
-def main():
-    input_file = Path("expansion.txt")
-
+input_file = Path("expansion.txt")
+try:
     with open(input_file) as f:
         content = f.read()
-    extensions = ['.xls', '.xml', '.html', '.css', '.py']
+except FileNotFoundError:
+    print(f"Ошибка: Файл {input_file} не найден!")
 
-    count = count_files_by_extensions(content, extensions)
-    print(f"Количество найденных файлов с расширениями {', '.join(extensions)}: = {count}")
+extensions = ['.xls', '.xml', '.html', '.css', '.py']
+found_files = find_files_by_extensions(content, extensions)
 
-if __name__ == "__main__":
-    main()
+print(f"Найдено файлов: {len(found_files)}")
+print("Имена найденных файлов:")
+
+if found_files:
+    unique_files = list(dict.fromkeys(found_files))
+
+    for i, filename in enumerate(unique_files, 1):
+        print(f"  {i}. {filename}")

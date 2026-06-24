@@ -5,10 +5,6 @@ text_data = ["Hello", "WoRlD", "123", "Python", "GeNeRaToR"]
 text_line = "ПРИВЕТ Мир! 2024"
 
 def lowercase_letters_generator(items: Iterator[Union[str, any]]) -> Iterator[str]:
-    """
-    Генератор, который принимает итератор и преобразует все буквенные символы
-    в каждом элементе в строчные. Небуквенные символы остаются без изменений.
-    """
     for item in items:
         s = str(item)
         transformed = ''.join(
@@ -23,5 +19,5 @@ result_list = list(gen)
 
 print("Результат (все буквы в нижнем регистре):", result_list)
 print("Исходная строка:", text_line)
-gen_from_str = lowercase_letters_generator([text_line])  # оборачиваем в список
+gen_from_str = lowercase_letters_generator([text_line])
 print("Результат:", next(gen_from_str))

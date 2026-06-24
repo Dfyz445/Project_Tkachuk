@@ -1,31 +1,25 @@
 #В матрице найти среднее арифметическое элементов последних двух столбцов.
 import random
+from functools import reduce
 
-matrix = [[random.randint(1, 30) for _ in range(3)] for _ in range(3)]
+rows = int(input("Введите количество строк: "))
+cols = int(input("Введите количество столбцов: "))
+matrix = [[random.randint(1, 30) for _ in range(rows)] for _ in range(cols)]
 
 print("Матрица:")
-for row in matrix:
-    print(row)
+list(map(print, matrix))
 
-rows = len(matrix)
 cols = len(matrix[0])
-
-
 if cols >= 2:
-    start_col = cols - 2
-else:
-    start_col = 0
+    elements = reduce(
+        lambda acc, row: acc + row[cols - 2:],
+        matrix,
+        []
+    )
 
-total_sum = 0
-count = 0
+    total = reduce(lambda acc, x: acc + x, elements, 0)
+    average = total / len(elements) if elements else None
 
-for i in range(rows):
-    for j in range(start_col, cols):
-        total_sum += matrix[i][j]
-        count += 1
-
-if count > 0:
-    average = total_sum / count
     print(f"Среднее арифметическое элементов последних двух столбцов: {average}")
 else:
     print("Нет элементов для подсчета")
